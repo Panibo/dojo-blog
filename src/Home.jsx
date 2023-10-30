@@ -9,6 +9,8 @@ const Home = () => {
         { title: "Web dev top tips", body: "lorem ipsum...", author: "mario", id: 3 }
     ]);
 
+    const [name, setName] = useState("mario");
+
     const handleDelete = (id) => {
         const newBlogs = blogs.filter(blog => blog.id !== id);
 
@@ -17,12 +19,14 @@ const Home = () => {
 
     useEffect(() => {
         console.log("use effect ran");
-        console.log(blogs);
-    });
+        console.log(name);
+    }, [name]);
 
     return (
         <div className="home">
             <BlogList blogs={blogs} title="All blogs!" handleDelete={handleDelete} />
+            <button onClick={() => setName('luigi')}>change name</button>
+            <p>{name}</p>
         </div>
     );
 }
@@ -49,5 +53,11 @@ Functions can be passed as props to other components. For example:
 
 Where handleDelete is the prop name and handleDelete is the function that is passed as a prop.
 ---
-useEffect hook runs every time the component renders. To make it run only once, pass an empty array as a second argument.
+useEffect hook runs every time the component renders. To make it run only once, pass an empty array as a second argument. To only run when a state changes pass the state as a second argument (Will still run on first render). For example:
+
+useEffect(() => {
+    console.log("use effect ran");
+    console.log(name);
+}, [name]);
+---
 */
