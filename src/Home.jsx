@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
@@ -14,6 +14,11 @@ const Home = () => {
 
         setBlogs(newBlogs);
     }
+
+    useEffect(() => {
+        console.log("use effect ran");
+        console.log(blogs);
+    });
 
     return (
         <div className="home">
@@ -44,4 +49,5 @@ Functions can be passed as props to other components. For example:
 
 Where handleDelete is the prop name and handleDelete is the function that is passed as a prop.
 ---
+useEffect hook runs every time the component renders. To make it run only once, pass an empty array as a second argument.
 */
