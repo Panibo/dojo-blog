@@ -9,10 +9,15 @@ const Home = () => {
         { title: "Web dev top tips", body: "lorem ipsum...", author: "mario", id: 3 }
     ]);
 
+    const handleDelete = (id) => {
+        const newBlogs = blogs.filter(blog => blog.id !== id);
+
+        setBlogs(newBlogs);
+    }
+
     return (
         <div className="home">
-            <BlogList blogs={blogs} title="All blogs!" />
-            <BlogList blogs={blogs.filter((blog) => blog.author === 'mario')} title="Mario's blogs" />
+            <BlogList blogs={blogs} title="All blogs!" handleDelete={handleDelete} />
         </div>
     );
 }
@@ -33,5 +38,10 @@ const [name, setName] = useState("mario");
 
 setName is a function that can be used to change the value of name.
 ---
+Functions can be passed as props to other components. For example:
 
+<BlogList blogs={blogs} title="All blogs!" handleDelete={handleDelete} />
+
+Where handleDelete is the prop name and handleDelete is the function that is passed as a prop.
+---
 */
