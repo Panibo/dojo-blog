@@ -18,6 +18,10 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
+        <footer>
+          <p>Made by Miro Mariapori</p>
+          <a href="https://www.youtube.com/watch?v=j942wKiXFu8&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d&index=1">Tutorial by Net Ninja</a>
+        </footer>
       </div>
     </Router>
   )
